@@ -1,0 +1,53 @@
+# ============================================================
+# Core deep learning stack
+# ------------------------------------------------------------
+# NOTE ON TORCH:
+#   Do NOT install torch from this file directly if you have a GPU.
+#   Install it FIRST using the correct CUDA build (see README Step 3).
+#   It is listed here only so CPU-only users get a working install.
+# ============================================================
+torch>=2.2.0
+
+# HuggingFace stack (model loading + inference)
+transformers>=4.44.0
+accelerate>=0.33.0
+sentencepiece>=0.2.0
+
+# Quantization (4-bit / 8-bit). Linux + NVIDIA GPU only.
+# On Windows/Mac/CPU this may fail to build — that is OK, it is optional.
+# The code auto-falls-back to full precision if bitsandbytes is missing.
+bitsandbytes>=0.43.0 ; platform_system == "Linux"
+
+# ------------------------------------------------------------
+# Retrieval / embeddings
+# ------------------------------------------------------------
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
+rank-bm25>=0.2.2          # lexical retrieval for hybrid search
+
+# ------------------------------------------------------------
+# Document extraction
+# ------------------------------------------------------------
+python-docx>=1.1.0        # .docx (articles, scripts, quizzes)
+pdfminer.six>=20240706    # .pdf (transcripts, textbooks)
+
+# ------------------------------------------------------------
+# Data handling + evaluation metrics
+# ------------------------------------------------------------
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+rouge-score>=0.1.2
+nltk>=3.9                 # BLEU
+tqdm>=4.66.0
+
+# ------------------------------------------------------------
+# Fine-tuning (RQ2/RQ5) + memory tracking (RQ3)
+# ------------------------------------------------------------
+peft>=0.11.0              # LoRA adapters
+datasets>=2.19.0          # training data loading
+psutil>=5.9.0             # cross-platform RAM measurement (optional but recommended)
+
+# Notebook environment
+jupyter>=1.0.0
+ipykernel>=6.29.0
