@@ -1,4 +1,4 @@
-# SLM Model For Education
+# Grounding Beats Scale: Small Language Models and Faithfulness Gating for Closed-Corpus Question Answering
 
 **A closed-corpus, faithfulness-gated Small Language Model for university module question answering fully offline, single-GPU, and evaluated end-to-end.**
 
