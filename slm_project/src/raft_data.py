@@ -57,11 +57,6 @@ def _example(question: str, context: str, target: str,
 
 def _stratified_pool(store: Store, n: int, used: set[str],
                      cfg: Config) -> list[ChunkRow]:
-    """Round-robin across source files so every file gets at least one
-    oracle before any file gets a second. Uniform random sampling over
-    chunks silently starves small files in a fragmented corpus (see module
-    docstring) - this is the fix.
-    """
     all_chunks = [c for c in store.sample_chunks(10 ** 9)
                  if c.chunk_id not in used]
     by_source: dict[str, list[ChunkRow]] = {}
